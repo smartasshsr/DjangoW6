@@ -11,7 +11,7 @@
   <ul>
     {% for weapon in weapons %}
       <!-- [미션] weapon의 power도 화면에 출력되도록 만들기 -->
-      <li><p>{{weapon.name}}</p></li>
+      <li><p>{{weapon.name}} (공격력 : {{weapon.power}})</p></li>
     {% empty %}
       <li><p>무기가 없습니다.</p></li>
     {% endfor %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from random import *
 # [미션] models.py의 Weapon 모델 불러오기
-
+from.models import weapon
 
 # Create your views here.
 win = 0
@@ -56,7 +56,10 @@ def create_weapon(request):
         # [미션] Weapon.objects.create를 사용하여 Weapon 객체 생성
         # [미션] Weapon의 name 필드에 weapon_name 변수 값 저장
         # [미션] Weapon의 power 필드에 weapon_power 변수 값 저장
-        
+        weapon.objects.create( 
+            name= weapon_name,
+            power = weapon_power
+        )
 
         return redirect('game:list_weapon')
     else:
@@ -64,11 +67,11 @@ def create_weapon(request):
 
 def list_weapon(request):
     # [미션] Weapon 모델의 모든 객체를 weapons 리스트로 가져오기
-
+    weapons = weapon.objects.all()
     context = {
         # [미션] weapons 리스트를 HTML로 넘겨주기
         # [미션] None을 지우고 작성
-        'weapons': None,
+        'weapons': weapons,
     }
 
     return render(request, 'game/list_weapon.html', context)

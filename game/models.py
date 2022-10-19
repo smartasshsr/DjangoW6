@@ -5,3 +5,7 @@ from django.db import models
 # [미션] models.Model 클래스를 상속받음
 # [미션] name : 문자열 필드, 최대 길이 20
 # [미션] power : 정수형 필드
+
+class weapon(models.Model) :
+    name =models.CharField(max_length = 20)
+    power = models.IntegerField()
