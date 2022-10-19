@@ -68,7 +68,7 @@ def list_weapon(request):
     context = {
         # [미션] weapons 리스트를 HTML로 넘겨주기
         # [미션] None을 지우고 작성
-        'weapons': None
+        'weapons': None,
     }
 
     return render(request, 'game/list_weapon.html', context)
