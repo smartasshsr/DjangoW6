@@ -23,10 +23,7 @@ def create(request):
         posting_content = request.POST.get('content')
 
         # [미션] Posting 모델의 title과 content 필드값에 form으로 넘겨준 값을 저장하는 객체 생성
-        (
-            title=posting_title,
-            content=posting_content,
-        )
+
         # 앱 이름이 'page'인 urls.py에서 name 속성값이 'read'인 url로 리다이렉트
         return redirect('page:read')
     else:

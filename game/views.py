@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from random import *
+# [미션] models.py의 Weapon 모델 불러오기
+
 
 # Create your views here.
 # win(승리), draw(무승부), lose(패배) 횟수를 저장하는 전역변수 생성
@@ -59,3 +61,29 @@ def reset(request):
 
     # 'urls.py'에서 설정한 app_name인 'games'의 url 경로중 별칭이 'rsp'인 경로로 리다이렉트
     return redirect("game:rsp")
+
+def create_weapon(request):
+    if request.method == "POST":
+        weapon_name = request.POST.get('weapon-name')
+        weapon_power = request.POST.get('weapon-power')
+
+        # [미션] Weapon 모델의 name과 content 필드값에 form으로 넘겨준 값을 저장하는 객체 생성
+        # [미션] Weapon.objects.create를 사용하여 Weapon 객체 생성
+        # [미션] Weapon의 name 필드에 weapon_name 변수 값 저장
+        # [미션] Weapon의 power 필드에 weapon_power 변수 값 저장
+        
+
+        return redirect('game:list_weapon')
+    else:
+        return render(request, 'game/create_weapon.html')
+
+def list_weapon(request):
+    # [미션] Weapon 모델의 모든 객체를 weapons 리스트로 가져오기
+
+    context = {
+        # [미션] weapons 리스트를 HTML로 넘겨주기
+        # [미션] None을 지우고 작성
+        'weapons': None
+    }
+
+    return render(request, 'game/list_weapon.html', context)
